@@ -1,0 +1,1148 @@
+Stage 11: Evaluate datasets using speaker verification...
+**ASV: libri_dev_trials_f, enroll - original, trial - original**
+  compute MFCC: libri_dev_enrolls
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/libri_dev_enrolls
+utils/validate_data_dir.sh: Successfully validated data-directory data/libri_dev_enrolls
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for libri_dev_enrolls
+fix_data_dir.sh: kept all 343 utterances.
+fix_data_dir.sh: old files are kept in data/libri_dev_enrolls/.backup
+  compute VAD: libri_dev_enrolls
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/libri_dev_enrolls
+Created VAD output for libri_dev_enrolls
+fix_data_dir.sh: kept all 343 utterances.
+fix_data_dir.sh: old files are kept in data/libri_dev_enrolls/.backup
+  compute MFCC: libri_dev_trials_f
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/libri_dev_trials_f
+utils/validate_data_dir.sh: Successfully validated data-directory data/libri_dev_trials_f
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for libri_dev_trials_f
+fix_data_dir.sh: kept all 1018 utterances.
+fix_data_dir.sh: old files are kept in data/libri_dev_trials_f/.backup
+  compute VAD: libri_dev_trials_f
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/libri_dev_trials_f
+Created VAD output for libri_dev_trials_f
+fix_data_dir.sh: kept all 1018 utterances.
+fix_data_dir.sh: old files are kept in data/libri_dev_trials_f/.backup
+  compute x-vect: libri_dev_enrolls
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/libri_dev_enrolls exp/models/asv_eval/xvect_01709_1/xvect_libri_dev_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/libri_dev_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  compute x-vect: libri_dev_trials_f
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/libri_dev_trials_f exp/models/asv_eval/xvect_01709_1/xvect_libri_dev_trials_f
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/libri_dev_trials_f
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-libri_dev_enrolls-libri_dev_trials_f
+EER: 8.665%
+minDCF(p-target=0.01): 0.4869
+minDCF(p-target=0.001): 0.5412
+Cllr (min/act): 0.305/42.930
+     ROCCH-EER: 8.652%
+
+linkability: 0.800057
+
+
+libri_dev_enrolls-libri_dev_trials_f
+Population: 0.491 bit
+Individual: 3.826 (C)
+
+**ASV: libri_dev_trials_f, enroll - original, trial - anonymized**
+  compute MFCC: libri_dev_trials_f_anon
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/libri_dev_trials_f_anon
+utils/validate_data_dir.sh: Successfully validated data-directory data/libri_dev_trials_f_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for libri_dev_trials_f_anon
+fix_data_dir.sh: kept all 1018 utterances.
+fix_data_dir.sh: old files are kept in data/libri_dev_trials_f_anon/.backup
+  compute VAD: libri_dev_trials_f_anon
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/libri_dev_trials_f_anon
+Created VAD output for libri_dev_trials_f_anon
+fix_data_dir.sh: kept all 1018 utterances.
+fix_data_dir.sh: old files are kept in data/libri_dev_trials_f_anon/.backup
+  compute x-vect: libri_dev_trials_f_anon
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/libri_dev_trials_f_anon exp/models/asv_eval/xvect_01709_1/xvect_libri_dev_trials_f_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/libri_dev_trials_f_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-libri_dev_enrolls-libri_dev_trials_f_anon
+EER: 50.43%
+minDCF(p-target=0.01): 0.9986
+minDCF(p-target=0.001): 0.9986
+Cllr (min/act): 0.991/141.290
+     ROCCH-EER: 48.408%
+
+linkability: 0.093255
+
+
+libri_dev_enrolls-libri_dev_trials_f_anon
+Population: 0.006 bit
+Individual: 1.617 (B)
+
+**ASV: libri_dev_trials_f, enroll - anonymized, trial - anonymized**
+  compute MFCC: libri_dev_enrolls_anon
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/libri_dev_enrolls_anon
+utils/validate_data_dir.sh: Successfully validated data-directory data/libri_dev_enrolls_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for libri_dev_enrolls_anon
+fix_data_dir.sh: kept all 343 utterances.
+fix_data_dir.sh: old files are kept in data/libri_dev_enrolls_anon/.backup
+  compute VAD: libri_dev_enrolls_anon
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/libri_dev_enrolls_anon
+Created VAD output for libri_dev_enrolls_anon
+fix_data_dir.sh: kept all 343 utterances.
+fix_data_dir.sh: old files are kept in data/libri_dev_enrolls_anon/.backup
+  compute x-vect: libri_dev_enrolls_anon
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/libri_dev_enrolls_anon exp/models/asv_eval/xvect_01709_1/xvect_libri_dev_enrolls_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/libri_dev_enrolls_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-libri_dev_enrolls_anon-libri_dev_trials_f_anon
+EER: 37.93%
+minDCF(p-target=0.01): 0.9943
+minDCF(p-target=0.001): 0.9943
+Cllr (min/act): 0.916/84.165
+     ROCCH-EER: 37.520%
+
+linkability: 0.196231
+
+
+libri_dev_enrolls_anon-libri_dev_trials_f_anon
+Population: 0.057 bit
+Individual: 2.015 (C)
+
+**ASV: libri_dev_trials_m, enroll - original, trial - original**
+  compute MFCC: libri_dev_trials_m
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/libri_dev_trials_m
+utils/validate_data_dir.sh: Successfully validated data-directory data/libri_dev_trials_m
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for libri_dev_trials_m
+fix_data_dir.sh: kept all 960 utterances.
+fix_data_dir.sh: old files are kept in data/libri_dev_trials_m/.backup
+  compute VAD: libri_dev_trials_m
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/libri_dev_trials_m
+Created VAD output for libri_dev_trials_m
+fix_data_dir.sh: kept all 960 utterances.
+fix_data_dir.sh: old files are kept in data/libri_dev_trials_m/.backup
+  compute x-vect: libri_dev_trials_m
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/libri_dev_trials_m exp/models/asv_eval/xvect_01709_1/xvect_libri_dev_trials_m
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/libri_dev_trials_m
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-libri_dev_enrolls-libri_dev_trials_m
+EER: 1.242%
+minDCF(p-target=0.01): 0.0714
+minDCF(p-target=0.001): 0.1289
+Cllr (min/act): 0.035/14.275
+     ROCCH-EER: 1.124%
+
+linkability: 0.971501
+
+
+libri_dev_enrolls-libri_dev_trials_m
+Population: 0.695 bit
+Individual: 4.048 (D)
+
+**ASV: libri_dev_trials_m, enroll - original, trial - anonymized**
+  compute MFCC: libri_dev_trials_m_anon
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/libri_dev_trials_m_anon
+utils/validate_data_dir.sh: Successfully validated data-directory data/libri_dev_trials_m_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for libri_dev_trials_m_anon
+fix_data_dir.sh: kept all 960 utterances.
+fix_data_dir.sh: old files are kept in data/libri_dev_trials_m_anon/.backup
+  compute VAD: libri_dev_trials_m_anon
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/libri_dev_trials_m_anon
+Created VAD output for libri_dev_trials_m_anon
+fix_data_dir.sh: kept all 960 utterances.
+fix_data_dir.sh: old files are kept in data/libri_dev_trials_m_anon/.backup
+  compute x-vect: libri_dev_trials_m_anon
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/libri_dev_trials_m_anon exp/models/asv_eval/xvect_01709_1/xvect_libri_dev_trials_m_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/libri_dev_trials_m_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-libri_dev_enrolls-libri_dev_trials_m_anon
+EER: 44.72%
+minDCF(p-target=0.01): 0.9984
+minDCF(p-target=0.001): 0.9984
+Cllr (min/act): 0.972/143.622
+     ROCCH-EER: 44.055%
+
+linkability: 0.126106
+
+
+libri_dev_enrolls-libri_dev_trials_m_anon
+Population: 0.019 bit
+Individual: 1.599 (B)
+
+**ASV: libri_dev_trials_m, enroll - anonymized, trial - anonymized**
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-libri_dev_enrolls_anon-libri_dev_trials_m_anon
+EER: 28.57%
+minDCF(p-target=0.01): 0.9549
+minDCF(p-target=0.001): 0.9612
+Cllr (min/act): 0.789/68.120
+     ROCCH-EER: 28.450%
+
+linkability: 0.356949
+
+
+libri_dev_enrolls_anon-libri_dev_trials_m_anon
+Population: 0.145 bit
+Individual: 2.713 (C)
+
+**ASV: vctk_dev_trials_f, enroll - original, trial - original**
+  compute MFCC: vctk_dev_enrolls
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_dev_enrolls
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_dev_enrolls
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_dev_enrolls
+fix_data_dir.sh: kept all 600 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_enrolls/.backup
+  compute VAD: vctk_dev_enrolls
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_dev_enrolls
+Created VAD output for vctk_dev_enrolls
+fix_data_dir.sh: kept all 600 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_enrolls/.backup
+  compute MFCC: vctk_dev_trials_f
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_dev_trials_f
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_dev_trials_f
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_dev_trials_f
+fix_data_dir.sh: kept all 5422 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_trials_f/.backup
+  compute VAD: vctk_dev_trials_f
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_dev_trials_f
+Created VAD output for vctk_dev_trials_f
+fix_data_dir.sh: kept all 5422 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_trials_f/.backup
+  compute x-vect: vctk_dev_enrolls
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_dev_enrolls exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_dev_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  compute x-vect: vctk_dev_trials_f
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_dev_trials_f exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_trials_f
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_dev_trials_f
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_dev_enrolls-vctk_dev_trials_f
+EER: 2.92%
+minDCF(p-target=0.01): 0.2325
+minDCF(p-target=0.001): 0.2948
+Cllr (min/act): 0.102/1.152
+     ROCCH-EER: 2.866%
+
+linkability: 0.930510
+
+
+vctk_dev_enrolls-vctk_dev_trials_f
+Population: 0.645 bit
+Individual: 3.970 (C)
+
+**ASV: vctk_dev_trials_f, enroll - original, trial - anonymized**
+  compute MFCC: vctk_dev_trials_f_anon
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_dev_trials_f_anon
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_dev_trials_f_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_dev_trials_f_anon
+fix_data_dir.sh: kept all 5422 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_trials_f_anon/.backup
+  compute VAD: vctk_dev_trials_f_anon
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_dev_trials_f_anon
+Created VAD output for vctk_dev_trials_f_anon
+fix_data_dir.sh: kept all 5422 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_trials_f_anon/.backup
+  compute x-vect: vctk_dev_trials_f_anon
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_dev_trials_f_anon exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_trials_f_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_dev_trials_f_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_dev_enrolls-vctk_dev_trials_f_anon
+EER: 45.99%
+minDCF(p-target=0.01): 1.0000
+minDCF(p-target=0.001): 1.0000
+Cllr (min/act): 0.978/94.798
+     ROCCH-EER: 45.634%
+
+linkability: 0.086689
+
+
+vctk_dev_enrolls-vctk_dev_trials_f_anon
+Population: 0.014 bit
+Individual: 0.570 (A)
+
+**ASV: vctk_dev_trials_f, enroll - anonymized, trial - anonymized**
+  compute MFCC: vctk_dev_enrolls_anon
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_dev_enrolls_anon
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_dev_enrolls_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_dev_enrolls_anon
+fix_data_dir.sh: kept all 600 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_enrolls_anon/.backup
+  compute VAD: vctk_dev_enrolls_anon
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_dev_enrolls_anon
+Created VAD output for vctk_dev_enrolls_anon
+fix_data_dir.sh: kept all 600 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_enrolls_anon/.backup
+  compute x-vect: vctk_dev_enrolls_anon
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_dev_enrolls_anon exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_enrolls_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_dev_enrolls_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_dev_enrolls_anon-vctk_dev_trials_f_anon
+EER: 30.04%
+minDCF(p-target=0.01): 0.9989
+minDCF(p-target=0.001): 0.9989
+Cllr (min/act): 0.845/58.186
+     ROCCH-EER: 29.973%
+
+linkability: 0.296209
+
+
+vctk_dev_enrolls_anon-vctk_dev_trials_f_anon
+Population: 0.105 bit
+Individual: 1.619 (B)
+
+**ASV: vctk_dev_trials_m, enroll - original, trial - original**
+  compute MFCC: vctk_dev_trials_m
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_dev_trials_m
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_dev_trials_m
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_dev_trials_m
+fix_data_dir.sh: kept all 5255 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_trials_m/.backup
+  compute VAD: vctk_dev_trials_m
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_dev_trials_m
+Created VAD output for vctk_dev_trials_m
+fix_data_dir.sh: kept all 5255 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_trials_m/.backup
+  compute x-vect: vctk_dev_trials_m
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_dev_trials_m exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_trials_m
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_dev_trials_m
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_dev_enrolls-vctk_dev_trials_m
+EER: 1.439%
+minDCF(p-target=0.01): 0.1150
+minDCF(p-target=0.001): 0.1454
+Cllr (min/act): 0.052/1.164
+     ROCCH-EER: 1.401%
+
+linkability: 0.968558
+
+
+vctk_dev_enrolls-vctk_dev_trials_m
+Population: 0.682 bit
+Individual: 4.045 (D)
+
+**ASV: vctk_dev_trials_m, enroll - original, trial - anonymized**
+  compute MFCC: vctk_dev_trials_m_anon
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_dev_trials_m_anon
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_dev_trials_m_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_dev_trials_m_anon
+fix_data_dir.sh: kept all 5255 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_trials_m_anon/.backup
+  compute VAD: vctk_dev_trials_m_anon
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_dev_trials_m_anon
+Created VAD output for vctk_dev_trials_m_anon
+fix_data_dir.sh: kept all 5255 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_trials_m_anon/.backup
+  compute x-vect: vctk_dev_trials_m_anon
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_dev_trials_m_anon exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_trials_m_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_dev_trials_m_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_dev_enrolls-vctk_dev_trials_m_anon
+EER: 28.88%
+minDCF(p-target=0.01): 0.9985
+minDCF(p-target=0.001): 0.9985
+Cllr (min/act): 0.798/90.422
+     ROCCH-EER: 28.707%
+
+linkability: 0.321297
+
+
+vctk_dev_enrolls-vctk_dev_trials_m_anon
+Population: 0.138 bit
+Individual: 1.609 (B)
+
+**ASV: vctk_dev_trials_m, enroll - anonymized, trial - anonymized**
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_dev_enrolls_anon-vctk_dev_trials_m_anon
+EER: 15.19%
+minDCF(p-target=0.01): 0.9011
+minDCF(p-target=0.001): 0.9320
+Cllr (min/act): 0.503/25.676
+     ROCCH-EER: 15.034%
+
+linkability: 0.631290
+
+
+vctk_dev_enrolls_anon-vctk_dev_trials_m_anon
+Population: 0.346 bit
+Individual: 2.949 (C)
+
+**ASV: vctk_dev_trials_f_common, enroll - original, trial - original**
+  compute MFCC: vctk_dev_trials_f_common
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_dev_trials_f_common
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_dev_trials_f_common
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_dev_trials_f_common
+fix_data_dir.sh: kept all 344 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_trials_f_common/.backup
+  compute VAD: vctk_dev_trials_f_common
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_dev_trials_f_common
+Created VAD output for vctk_dev_trials_f_common
+fix_data_dir.sh: kept all 344 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_trials_f_common/.backup
+  compute x-vect: vctk_dev_trials_f_common
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_dev_trials_f_common exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_trials_f_common
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_dev_trials_f_common
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_dev_enrolls-vctk_dev_trials_f_common
+EER: 2.616%
+minDCF(p-target=0.01): 0.1601
+minDCF(p-target=0.001): 0.1802
+Cllr (min/act): 0.089/0.874
+     ROCCH-EER: 2.232%
+
+linkability: 0.935512
+
+
+vctk_dev_enrolls-vctk_dev_trials_f_common
+Population: 0.652 bit
+Individual: 3.597 (C)
+
+**ASV: vctk_dev_trials_f_common, enroll - original, trial - anonymized**
+  compute MFCC: vctk_dev_trials_f_common_anon
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_dev_trials_f_common_anon
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_dev_trials_f_common_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_dev_trials_f_common_anon
+fix_data_dir.sh: kept all 344 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_trials_f_common_anon/.backup
+  compute VAD: vctk_dev_trials_f_common_anon
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_dev_trials_f_common_anon
+Created VAD output for vctk_dev_trials_f_common_anon
+fix_data_dir.sh: kept all 344 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_trials_f_common_anon/.backup
+  compute x-vect: vctk_dev_trials_f_common_anon
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_dev_trials_f_common_anon exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_trials_f_common_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_dev_trials_f_common_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_dev_enrolls-vctk_dev_trials_f_common_anon
+EER: 43.02%
+minDCF(p-target=0.01): 1.0000
+minDCF(p-target=0.001): 1.0000
+Cllr (min/act): 0.967/89.723
+     ROCCH-EER: 42.180%
+
+linkability: 0.111718
+
+
+vctk_dev_enrolls-vctk_dev_trials_f_common_anon
+Population: 0.022 bit
+Individual: 0.845 (A)
+
+**ASV: vctk_dev_trials_f_common, enroll - anonymized, trial - anonymized**
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_dev_enrolls_anon-vctk_dev_trials_f_common_anon
+EER: 29.65%
+minDCF(p-target=0.01): 0.9797
+minDCF(p-target=0.001): 0.9797
+Cllr (min/act): 0.780/63.752
+     ROCCH-EER: 29.226%
+
+linkability: 0.280335
+
+
+vctk_dev_enrolls_anon-vctk_dev_trials_f_common_anon
+Population: 0.153 bit
+Individual: 2.049 (C)
+
+**ASV: vctk_dev_trials_m_common, enroll - original, trial - original**
+  compute MFCC: vctk_dev_trials_m_common
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_dev_trials_m_common
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_dev_trials_m_common
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_dev_trials_m_common
+fix_data_dir.sh: kept all 351 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_trials_m_common/.backup
+  compute VAD: vctk_dev_trials_m_common
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_dev_trials_m_common
+Created VAD output for vctk_dev_trials_m_common
+fix_data_dir.sh: kept all 351 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_trials_m_common/.backup
+  compute x-vect: vctk_dev_trials_m_common
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_dev_trials_m_common exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_trials_m_common
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_dev_trials_m_common
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_dev_enrolls-vctk_dev_trials_m_common
+EER: 1.425%
+minDCF(p-target=0.01): 0.0885
+minDCF(p-target=0.001): 0.1538
+Cllr (min/act): 0.051/1.565
+     ROCCH-EER: 1.343%
+
+linkability: 0.962740
+
+
+vctk_dev_enrolls-vctk_dev_trials_m_common
+Population: 0.682 bit
+Individual: 3.620 (C)
+
+**ASV: vctk_dev_trials_m_common, enroll - original, trial - anonymized**
+  compute MFCC: vctk_dev_trials_m_common_anon
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_dev_trials_m_common_anon
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_dev_trials_m_common_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_dev_trials_m_common_anon
+fix_data_dir.sh: kept all 351 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_trials_m_common_anon/.backup
+  compute VAD: vctk_dev_trials_m_common_anon
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_dev_trials_m_common_anon
+Created VAD output for vctk_dev_trials_m_common_anon
+fix_data_dir.sh: kept all 351 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_trials_m_common_anon/.backup
+  compute x-vect: vctk_dev_trials_m_common_anon
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_dev_trials_m_common_anon exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_trials_m_common_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_dev_trials_m_common_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_dev_enrolls-vctk_dev_trials_m_common_anon
+EER: 29.34%
+minDCF(p-target=0.01): 0.9886
+minDCF(p-target=0.001): 0.9886
+Cllr (min/act): 0.762/95.188
+     ROCCH-EER: 28.500%
+
+linkability: 0.333175
+
+
+vctk_dev_enrolls-vctk_dev_trials_m_common_anon
+Population: 0.165 bit
+Individual: 1.845 (B)
+
+**ASV: vctk_dev_trials_m_common, enroll - anonymized, trial - anonymized**
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_dev_enrolls_anon-vctk_dev_trials_m_common_anon
+EER: 18.52%
+minDCF(p-target=0.01): 0.9915
+minDCF(p-target=0.001): 0.9915
+Cllr (min/act): 0.578/35.162
+     ROCCH-EER: 18.315%
+
+linkability: 0.544049
+
+
+vctk_dev_enrolls_anon-vctk_dev_trials_m_common_anon
+Population: 0.293 bit
+Individual: 1.859 (B)
+
+**ASV: libri_test_trials_f, enroll - original, trial - original**
+  compute MFCC: libri_test_enrolls
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/libri_test_enrolls
+utils/validate_data_dir.sh: Successfully validated data-directory data/libri_test_enrolls
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for libri_test_enrolls
+fix_data_dir.sh: kept all 438 utterances.
+fix_data_dir.sh: old files are kept in data/libri_test_enrolls/.backup
+  compute VAD: libri_test_enrolls
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/libri_test_enrolls
+Created VAD output for libri_test_enrolls
+fix_data_dir.sh: kept all 438 utterances.
+fix_data_dir.sh: old files are kept in data/libri_test_enrolls/.backup
+  compute MFCC: libri_test_trials_f
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/libri_test_trials_f
+utils/validate_data_dir.sh: Successfully validated data-directory data/libri_test_trials_f
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for libri_test_trials_f
+fix_data_dir.sh: kept all 734 utterances.
+fix_data_dir.sh: old files are kept in data/libri_test_trials_f/.backup
+  compute VAD: libri_test_trials_f
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/libri_test_trials_f
+Created VAD output for libri_test_trials_f
+fix_data_dir.sh: kept all 734 utterances.
+fix_data_dir.sh: old files are kept in data/libri_test_trials_f/.backup
+  compute x-vect: libri_test_enrolls
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/libri_test_enrolls exp/models/asv_eval/xvect_01709_1/xvect_libri_test_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/libri_test_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  compute x-vect: libri_test_trials_f
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/libri_test_trials_f exp/models/asv_eval/xvect_01709_1/xvect_libri_test_trials_f
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/libri_test_trials_f
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-libri_test_enrolls-libri_test_trials_f
+EER: 7.664%
+minDCF(p-target=0.01): 0.1308
+minDCF(p-target=0.001): 0.1551
+Cllr (min/act): 0.184/26.799
+     ROCCH-EER: 7.174%
+
+linkability: 0.897607
+
+
+libri_test_enrolls-libri_test_trials_f
+Population: 0.584 bit
+Individual: 3.977 (C)
+
+**ASV: libri_test_trials_f, enroll - original, trial - anonymized**
+  compute MFCC: libri_test_trials_f_anon
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/libri_test_trials_f_anon
+utils/validate_data_dir.sh: Successfully validated data-directory data/libri_test_trials_f_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for libri_test_trials_f_anon
+fix_data_dir.sh: kept all 734 utterances.
+fix_data_dir.sh: old files are kept in data/libri_test_trials_f_anon/.backup
+  compute VAD: libri_test_trials_f_anon
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/libri_test_trials_f_anon
+Created VAD output for libri_test_trials_f_anon
+fix_data_dir.sh: kept all 734 utterances.
+fix_data_dir.sh: old files are kept in data/libri_test_trials_f_anon/.backup
+  compute x-vect: libri_test_trials_f_anon
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/libri_test_trials_f_anon exp/models/asv_eval/xvect_01709_1/xvect_libri_test_trials_f_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/libri_test_trials_f_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-libri_test_enrolls-libri_test_trials_f_anon
+EER: 47.26%
+minDCF(p-target=0.01): 1.0000
+minDCF(p-target=0.001): 1.0000
+Cllr (min/act): 0.982/133.058
+     ROCCH-EER: 46.836%
+
+linkability: 0.088151
+
+
+libri_test_enrolls-libri_test_trials_f_anon
+Population: 0.012 bit
+Individual: 1.050 (B)
+
+**ASV: libri_test_trials_f, enroll - anonymized, trial - anonymized**
+  compute MFCC: libri_test_enrolls_anon
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/libri_test_enrolls_anon
+utils/validate_data_dir.sh: Successfully validated data-directory data/libri_test_enrolls_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for libri_test_enrolls_anon
+fix_data_dir.sh: kept all 438 utterances.
+fix_data_dir.sh: old files are kept in data/libri_test_enrolls_anon/.backup
+  compute VAD: libri_test_enrolls_anon
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/libri_test_enrolls_anon
+Created VAD output for libri_test_enrolls_anon
+fix_data_dir.sh: kept all 438 utterances.
+fix_data_dir.sh: old files are kept in data/libri_test_enrolls_anon/.backup
+  compute x-vect: libri_test_enrolls_anon
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/libri_test_enrolls_anon exp/models/asv_eval/xvect_01709_1/xvect_libri_test_enrolls_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/libri_test_enrolls_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-libri_test_enrolls_anon-libri_test_trials_f_anon
+EER: 31.93%
+minDCF(p-target=0.01): 0.9964
+minDCF(p-target=0.001): 0.9964
+Cllr (min/act): 0.833/77.755
+     ROCCH-EER: 31.316%
+
+linkability: 0.287097
+
+
+libri_test_enrolls_anon-libri_test_trials_f_anon
+Population: 0.115 bit
+Individual: 1.787 (B)
+
+**ASV: libri_test_trials_m, enroll - original, trial - original**
+  compute MFCC: libri_test_trials_m
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/libri_test_trials_m
+utils/validate_data_dir.sh: Successfully validated data-directory data/libri_test_trials_m
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for libri_test_trials_m
+fix_data_dir.sh: kept all 762 utterances.
+fix_data_dir.sh: old files are kept in data/libri_test_trials_m/.backup
+  compute VAD: libri_test_trials_m
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/libri_test_trials_m
+Created VAD output for libri_test_trials_m
+fix_data_dir.sh: kept all 762 utterances.
+fix_data_dir.sh: old files are kept in data/libri_test_trials_m/.backup
+  compute x-vect: libri_test_trials_m
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/libri_test_trials_m exp/models/asv_eval/xvect_01709_1/xvect_libri_test_trials_m
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/libri_test_trials_m
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-libri_test_enrolls-libri_test_trials_m
+EER: 1.114%
+minDCF(p-target=0.01): 0.1136
+minDCF(p-target=0.001): 0.1136
+Cllr (min/act): 0.041/15.342
+     ROCCH-EER: 1.068%
+
+linkability: 0.957451
+
+
+libri_test_enrolls-libri_test_trials_m
+Population: 0.690 bit
+Individual: 3.924 (C)
+
+**ASV: libri_test_trials_m, enroll - original, trial - anonymized**
+  compute MFCC: libri_test_trials_m_anon
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/libri_test_trials_m_anon
+utils/validate_data_dir.sh: Successfully validated data-directory data/libri_test_trials_m_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for libri_test_trials_m_anon
+fix_data_dir.sh: kept all 762 utterances.
+fix_data_dir.sh: old files are kept in data/libri_test_trials_m_anon/.backup
+  compute VAD: libri_test_trials_m_anon
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/libri_test_trials_m_anon
+Created VAD output for libri_test_trials_m_anon
+fix_data_dir.sh: kept all 762 utterances.
+fix_data_dir.sh: old files are kept in data/libri_test_trials_m_anon/.backup
+  compute x-vect: libri_test_trials_m_anon
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/libri_test_trials_m_anon exp/models/asv_eval/xvect_01709_1/xvect_libri_test_trials_m_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/libri_test_trials_m_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-libri_test_enrolls-libri_test_trials_m_anon
+EER: 40.53%
+minDCF(p-target=0.01): 1.0000
+minDCF(p-target=0.001): 1.0000
+Cllr (min/act): 0.930/146.041
+     ROCCH-EER: 40.116%
+
+linkability: 0.147918
+
+
+libri_test_enrolls-libri_test_trials_m_anon
+Population: 0.048 bit
+Individual: 1.448 (B)
+
+**ASV: libri_test_trials_m, enroll - anonymized, trial - anonymized**
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-libri_test_enrolls_anon-libri_test_trials_m_anon
+EER: 38.75%
+minDCF(p-target=0.01): 0.9933
+minDCF(p-target=0.001): 0.9933
+Cllr (min/act): 0.892/72.644
+     ROCCH-EER: 36.974%
+
+linkability: 0.219139
+
+
+libri_test_enrolls_anon-libri_test_trials_m_anon
+Population: 0.074 bit
+Individual: 1.926 (B)
+
+**ASV: vctk_test_trials_f, enroll - original, trial - original**
+  compute MFCC: vctk_test_enrolls
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_test_enrolls
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_test_enrolls
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_test_enrolls
+fix_data_dir.sh: kept all 600 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_enrolls/.backup
+  compute VAD: vctk_test_enrolls
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_test_enrolls
+Created VAD output for vctk_test_enrolls
+fix_data_dir.sh: kept all 600 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_enrolls/.backup
+  compute MFCC: vctk_test_trials_f
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_test_trials_f
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_test_trials_f
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_test_trials_f
+fix_data_dir.sh: kept all 5328 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_trials_f/.backup
+  compute VAD: vctk_test_trials_f
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_test_trials_f
+Created VAD output for vctk_test_trials_f
+fix_data_dir.sh: kept all 5328 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_trials_f/.backup
+  compute x-vect: vctk_test_enrolls
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_test_enrolls exp/models/asv_eval/xvect_01709_1/xvect_vctk_test_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_test_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  compute x-vect: vctk_test_trials_f
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_test_trials_f exp/models/asv_eval/xvect_01709_1/xvect_vctk_test_trials_f
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_test_trials_f
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_test_enrolls-vctk_test_trials_f
+EER: 4.99%
+minDCF(p-target=0.01): 0.3936
+minDCF(p-target=0.001): 0.6319
+Cllr (min/act): 0.170/1.501
+     ROCCH-EER: 4.913%
+
+linkability: 0.879313
+
+
+vctk_test_enrolls-vctk_test_trials_f
+Population: 0.593 bit
+Individual: 3.649 (C)
+
+**ASV: vctk_test_trials_f, enroll - original, trial - anonymized**
+  compute MFCC: vctk_test_trials_f_anon
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_test_trials_f_anon
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_test_trials_f_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_test_trials_f_anon
+fix_data_dir.sh: kept all 5328 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_trials_f_anon/.backup
+  compute VAD: vctk_test_trials_f_anon
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_test_trials_f_anon
+Created VAD output for vctk_test_trials_f_anon
+fix_data_dir.sh: kept all 5328 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_trials_f_anon/.backup
+  compute x-vect: vctk_test_trials_f_anon
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_test_trials_f_anon exp/models/asv_eval/xvect_01709_1/xvect_vctk_test_trials_f_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_test_trials_f_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_test_enrolls-vctk_test_trials_f_anon
+EER: 36.99%
+minDCF(p-target=0.01): 0.9995
+minDCF(p-target=0.001): 0.9995
+Cllr (min/act): 0.906/92.020
+     ROCCH-EER: 36.655%
+
+linkability: 0.212980
+
+
+vctk_test_enrolls-vctk_test_trials_f_anon
+Population: 0.064 bit
+Individual: 1.304 (B)
+
+**ASV: vctk_test_trials_f, enroll - anonymized, trial - anonymized**
+  compute MFCC: vctk_test_enrolls_anon
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_test_enrolls_anon
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_test_enrolls_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_test_enrolls_anon
+fix_data_dir.sh: kept all 600 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_enrolls_anon/.backup
+  compute VAD: vctk_test_enrolls_anon
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_test_enrolls_anon
+Created VAD output for vctk_test_enrolls_anon
+fix_data_dir.sh: kept all 600 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_enrolls_anon/.backup
+  compute x-vect: vctk_test_enrolls_anon
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_test_enrolls_anon exp/models/asv_eval/xvect_01709_1/xvect_vctk_test_enrolls_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_test_enrolls_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_test_enrolls_anon-vctk_test_trials_f_anon
+EER: 29.17%
+minDCF(p-target=0.01): 0.9810
+minDCF(p-target=0.001): 0.9810
+Cllr (min/act): 0.798/58.055
+     ROCCH-EER: 29.070%
+
+linkability: 0.368611
+
+
+vctk_test_enrolls_anon-vctk_test_trials_f_anon
+Population: 0.138 bit
+Individual: 2.407 (C)
+
+**ASV: vctk_test_trials_m, enroll - original, trial - original**
+  compute MFCC: vctk_test_trials_m
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_test_trials_m
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_test_trials_m
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_test_trials_m
+fix_data_dir.sh: kept all 5420 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_trials_m/.backup
+  compute VAD: vctk_test_trials_m
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_test_trials_m
+Created VAD output for vctk_test_trials_m
+fix_data_dir.sh: kept all 5420 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_trials_m/.backup
+  compute x-vect: vctk_test_trials_m
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_test_trials_m exp/models/asv_eval/xvect_01709_1/xvect_vctk_test_trials_m
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_test_trials_m
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_test_enrolls-vctk_test_trials_m
+EER: 2.067%
+minDCF(p-target=0.01): 0.1906
+minDCF(p-target=0.001): 0.3773
+Cllr (min/act): 0.071/1.819
+     ROCCH-EER: 1.967%
+
+linkability: 0.950626
+
+
+vctk_test_enrolls-vctk_test_trials_m
+Population: 0.667 bit
+Individual: 3.916 (C)
+
+**ASV: vctk_test_trials_m, enroll - original, trial - anonymized**
+  compute MFCC: vctk_test_trials_m_anon
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_test_trials_m_anon
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_test_trials_m_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_test_trials_m_anon
+fix_data_dir.sh: kept all 5420 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_trials_m_anon/.backup
+  compute VAD: vctk_test_trials_m_anon
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_test_trials_m_anon
+Created VAD output for vctk_test_trials_m_anon
+fix_data_dir.sh: kept all 5420 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_trials_m_anon/.backup
+  compute x-vect: vctk_test_trials_m_anon
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_test_trials_m_anon exp/models/asv_eval/xvect_01709_1/xvect_vctk_test_trials_m_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_test_trials_m_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_test_enrolls-vctk_test_trials_m_anon
+EER: 34.21%
+minDCF(p-target=0.01): 0.9937
+minDCF(p-target=0.001): 0.9989
+Cllr (min/act): 0.830/94.357
+     ROCCH-EER: 33.993%
+
+linkability: 0.250570
+
+
+vctk_test_enrolls-vctk_test_trials_m_anon
+Population: 0.118 bit
+Individual: 2.050 (C)
+
+**ASV: vctk_test_trials_m, enroll - anonymized, trial - anonymized**
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_test_enrolls_anon-vctk_test_trials_m_anon
+EER: 15.21%
+minDCF(p-target=0.01): 0.8933
+minDCF(p-target=0.001): 0.9816
+Cllr (min/act): 0.499/26.206
+     ROCCH-EER: 15.070%
+
+linkability: 0.636354
+
+
+vctk_test_enrolls_anon-vctk_test_trials_m_anon
+Population: 0.350 bit
+Individual: 2.711 (C)
+
+**ASV: vctk_test_trials_f_common, enroll - original, trial - original**
+  compute MFCC: vctk_test_trials_f_common
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_test_trials_f_common
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_test_trials_f_common
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_test_trials_f_common
+fix_data_dir.sh: kept all 346 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_trials_f_common/.backup
+  compute VAD: vctk_test_trials_f_common
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_test_trials_f_common
+Created VAD output for vctk_test_trials_f_common
+fix_data_dir.sh: kept all 346 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_trials_f_common/.backup
+  compute x-vect: vctk_test_trials_f_common
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_test_trials_f_common exp/models/asv_eval/xvect_01709_1/xvect_vctk_test_trials_f_common
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_test_trials_f_common
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_test_enrolls-vctk_test_trials_f_common
+EER: 2.89%
+minDCF(p-target=0.01): 0.2257
+minDCF(p-target=0.001): 0.2543
+Cllr (min/act): 0.092/0.858
+     ROCCH-EER: 2.760%
+
+linkability: 0.924562
+
+
+vctk_test_enrolls-vctk_test_trials_f_common
+Population: 0.652 bit
+Individual: 3.559 (C)
+
+**ASV: vctk_test_trials_f_common, enroll - original, trial - anonymized**
+  compute MFCC: vctk_test_trials_f_common_anon
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_test_trials_f_common_anon
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_test_trials_f_common_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_test_trials_f_common_anon
+fix_data_dir.sh: kept all 346 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_trials_f_common_anon/.backup
+  compute VAD: vctk_test_trials_f_common_anon
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_test_trials_f_common_anon
+Created VAD output for vctk_test_trials_f_common_anon
+fix_data_dir.sh: kept all 346 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_trials_f_common_anon/.backup
+  compute x-vect: vctk_test_trials_f_common_anon
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_test_trials_f_common_anon exp/models/asv_eval/xvect_01709_1/xvect_vctk_test_trials_f_common_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_test_trials_f_common_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_test_enrolls-vctk_test_trials_f_common_anon
+EER: 43.06%
+minDCF(p-target=0.01): 1.0000
+minDCF(p-target=0.001): 1.0000
+Cllr (min/act): 0.962/101.361
+     ROCCH-EER: 42.343%
+
+linkability: 0.116660
+
+
+vctk_test_enrolls-vctk_test_trials_f_common_anon
+Population: 0.026 bit
+Individual: 0.509 (A)
+
+**ASV: vctk_test_trials_f_common, enroll - anonymized, trial - anonymized**
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_test_enrolls_anon-vctk_test_trials_f_common_anon
+EER: 30.06%
+minDCF(p-target=0.01): 0.9711
+minDCF(p-target=0.001): 0.9711
+Cllr (min/act): 0.803/71.634
+     ROCCH-EER: 29.184%
+
+linkability: 0.310515
+
+
+vctk_test_enrolls_anon-vctk_test_trials_f_common_anon
+Population: 0.135 bit
+Individual: 2.187 (C)
+
+**ASV: vctk_test_trials_m_common, enroll - original, trial - original**
+  compute MFCC: vctk_test_trials_m_common
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_test_trials_m_common
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_test_trials_m_common
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_test_trials_m_common
+fix_data_dir.sh: kept all 354 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_trials_m_common/.backup
+  compute VAD: vctk_test_trials_m_common
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_test_trials_m_common
+Created VAD output for vctk_test_trials_m_common
+fix_data_dir.sh: kept all 354 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_trials_m_common/.backup
+  compute x-vect: vctk_test_trials_m_common
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_test_trials_m_common exp/models/asv_eval/xvect_01709_1/xvect_vctk_test_trials_m_common
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_test_trials_m_common
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_test_enrolls-vctk_test_trials_m_common
+EER: 1.13%
+minDCF(p-target=0.01): 0.0480
+minDCF(p-target=0.001): 0.0480
+Cllr (min/act): 0.035/1.029
+     ROCCH-EER: 0.923%
+
+linkability: 0.972158
+
+
+vctk_test_enrolls-vctk_test_trials_m_common
+Population: 0.695 bit
+Individual: 3.675 (C)
+
+**ASV: vctk_test_trials_m_common, enroll - original, trial - anonymized**
+  compute MFCC: vctk_test_trials_m_common_anon
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true data/vctk_test_trials_m_common_anon
+utils/validate_data_dir.sh: Successfully validated data-directory data/vctk_test_trials_m_common_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_test_trials_m_common_anon
+fix_data_dir.sh: kept all 354 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_trials_m_common_anon/.backup
+  compute VAD: vctk_test_trials_m_common_anon
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl data/vctk_test_trials_m_common_anon
+Created VAD output for vctk_test_trials_m_common_anon
+fix_data_dir.sh: kept all 354 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_trials_m_common_anon/.backup
+  compute x-vect: vctk_test_trials_m_common_anon
+sid/nnet3/xvector/extract_xvectors.sh --nj 8 --cmd run.pl exp/models/asv_eval/xvect_01709_1 data/vctk_test_trials_m_common_anon exp/models/asv_eval/xvect_01709_1/xvect_vctk_test_trials_m_common_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/vctk_test_trials_m_common_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_test_enrolls-vctk_test_trials_m_common_anon
+EER: 33.05%
+minDCF(p-target=0.01): 0.9887
+minDCF(p-target=0.001): 0.9887
+Cllr (min/act): 0.829/93.228
+     ROCCH-EER: 32.546%
+
+linkability: 0.257803
+
+
+vctk_test_enrolls-vctk_test_trials_m_common_anon
+Population: 0.118 bit
+Individual: 1.924 (B)
+
+**ASV: vctk_test_trials_m_common, enroll - anonymized, trial - anonymized**
+  ASV scoring: exp/results-2022-07-17-19-39-17/ASV-vctk_test_enrolls_anon-vctk_test_trials_m_common_anon
+EER: 17.51%
+minDCF(p-target=0.01): 0.9746
+minDCF(p-target=0.001): 0.9746
+Cllr (min/act): 0.576/37.934
+     ROCCH-EER: 17.377%
+
+linkability: 0.573353
+
+
+vctk_test_enrolls_anon-vctk_test_trials_m_common_anon
+Population: 0.294 bit
+Individual: 2.146 (C)
