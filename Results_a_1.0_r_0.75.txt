@@ -1,0 +1,312 @@
+ASV-libri_dev_enrolls-libri_dev_trials_f
+  EER: 8.665%
+  Cllr (min/act): 0.305/42.930
+  ROCCH-EER: 8.652%
+  linkability: 0.800057
+  Population: 0.491 bit
+  Individual: 3.826 (C)
+ASV-libri_dev_enrolls-libri_dev_trials_f_anon
+  EER: 27.98%
+  Cllr (min/act): 0.775/132.652
+  ROCCH-EER: 27.977%
+  linkability: 0.373022
+  Population: 0.155 bit
+  Individual: 3.006 (C)
+ASV-libri_dev_enrolls-libri_dev_trials_m
+  EER: 1.242%
+  Cllr (min/act): 0.035/14.275
+  ROCCH-EER: 1.124%
+  linkability: 0.971501
+  Population: 0.695 bit
+  Individual: 4.048 (D)
+ASV-libri_dev_enrolls-libri_dev_trials_m_anon
+  EER: 34.32%
+  Cllr (min/act): 0.801/130.857
+  ROCCH-EER: 33.809%
+  linkability: 0.263084
+  Population: 0.141 bit
+  Individual: 3.190 (C)
+ASV-libri_dev_enrolls_anon-libri_dev_trials_f_anon
+  EER: 28.27%
+  Cllr (min/act): 0.707/49.587
+  ROCCH-EER: 28.246%
+  linkability: 0.449003
+  Population: 0.205 bit
+  Individual: 3.197 (C)
+ASV-libri_dev_enrolls_anon-libri_dev_trials_m_anon
+  EER: 13.51%
+  Cllr (min/act): 0.450/51.926
+  ROCCH-EER: 13.289%
+  linkability: 0.687622
+  Population: 0.386 bit
+  Individual: 3.399 (C)
+ASV-libri_test_enrolls-libri_test_trials_f
+  EER: 7.664%
+  Cllr (min/act): 0.184/26.799
+  ROCCH-EER: 7.174%
+  linkability: 0.897607
+  Population: 0.584 bit
+  Individual: 3.977 (C)
+ASV-libri_test_enrolls-libri_test_trials_f_anon
+  EER: 31.2%
+  Cllr (min/act): 0.748/122.500
+  ROCCH-EER: 30.292%
+  linkability: 0.346025
+  Population: 0.176 bit
+  Individual: 2.541 (C)
+ASV-libri_test_enrolls-libri_test_trials_m
+  EER: 1.114%
+  Cllr (min/act): 0.041/15.342
+  ROCCH-EER: 1.068%
+  linkability: 0.957451
+  Population: 0.690 bit
+  Individual: 3.924 (C)
+ASV-libri_test_enrolls-libri_test_trials_m_anon
+  EER: 21.83%
+  Cllr (min/act): 0.583/119.252
+  ROCCH-EER: 21.485%
+  linkability: 0.502985
+  Population: 0.293 bit
+  Individual: 3.116 (C)
+ASV-libri_test_enrolls_anon-libri_test_trials_f_anon
+  EER: 20.26%
+  Cllr (min/act): 0.566/50.511
+  ROCCH-EER: 19.657%
+  linkability: 0.544288
+  Population: 0.305 bit
+  Individual: 3.437 (C)
+ASV-libri_test_enrolls_anon-libri_test_trials_m_anon
+  EER: 12.92%
+  Cllr (min/act): 0.396/62.324
+  ROCCH-EER: 12.559%
+  linkability: 0.690669
+  Population: 0.428 bit
+  Individual: 3.467 (C)
+ASV-vctk_dev_enrolls-vctk_dev_trials_f
+  EER: 2.92%
+  Cllr (min/act): 0.102/1.152
+  ROCCH-EER: 2.866%
+  linkability: 0.930510
+  Population: 0.645 bit
+  Individual: 3.970 (C)
+ASV-vctk_dev_enrolls-vctk_dev_trials_f_anon
+  EER: 24.03%
+  Cllr (min/act): 0.665/116.037
+  ROCCH-EER: 24.000%
+  linkability: 0.445991
+  Population: 0.233 bit
+  Individual: 2.275 (C)
+ASV-vctk_dev_enrolls-vctk_dev_trials_f_common
+  EER: 2.616%
+  Cllr (min/act): 0.089/0.874
+  ROCCH-EER: 2.232%
+  linkability: 0.935512
+  Population: 0.652 bit
+  Individual: 3.597 (C)
+ASV-vctk_dev_enrolls-vctk_dev_trials_f_common_anon
+  EER: 26.16%
+  Cllr (min/act): 0.717/111.005
+  ROCCH-EER: 25.815%
+  linkability: 0.384605
+  Population: 0.196 bit
+  Individual: 1.991 (B)
+ASV-vctk_dev_enrolls-vctk_dev_trials_m
+  EER: 1.439%
+  Cllr (min/act): 0.052/1.164
+  ROCCH-EER: 1.401%
+  linkability: 0.968558
+  Population: 0.682 bit
+  Individual: 4.045 (D)
+ASV-vctk_dev_enrolls-vctk_dev_trials_m_anon
+  EER: 17.92%
+  Cllr (min/act): 0.582/87.516
+  ROCCH-EER: 17.781%
+  linkability: 0.582130
+  Population: 0.290 bit
+  Individual: 2.744 (C)
+ASV-vctk_dev_enrolls-vctk_dev_trials_m_common
+  EER: 1.425%
+  Cllr (min/act): 0.051/1.565
+  ROCCH-EER: 1.343%
+  linkability: 0.962740
+  Population: 0.682 bit
+  Individual: 3.620 (C)
+ASV-vctk_dev_enrolls-vctk_dev_trials_m_common_anon
+  EER: 29.06%
+  Cllr (min/act): 0.786/97.514
+  ROCCH-EER: 28.834%
+  linkability: 0.339954
+  Population: 0.146 bit
+  Individual: 1.845 (B)
+ASV-vctk_dev_enrolls_anon-vctk_dev_trials_f_anon
+  EER: 12.02%
+  Cllr (min/act): 0.410/56.849
+  ROCCH-EER: 11.927%
+  linkability: 0.726123
+  Population: 0.415 bit
+  Individual: 3.207 (C)
+ASV-vctk_dev_enrolls_anon-vctk_dev_trials_f_common_anon
+  EER: 11.34%
+  Cllr (min/act): 0.368/66.116
+  ROCCH-EER: 10.994%
+  linkability: 0.707365
+  Population: 0.446 bit
+  Individual: 2.909 (C)
+ASV-vctk_dev_enrolls_anon-vctk_dev_trials_m_anon
+  EER: 13.75%
+  Cllr (min/act): 0.453/60.869
+  ROCCH-EER: 13.584%
+  linkability: 0.686027
+  Population: 0.383 bit
+  Individual: 3.212 (C)
+ASV-vctk_dev_enrolls_anon-vctk_dev_trials_m_common_anon
+  EER: 13.68%
+  Cllr (min/act): 0.462/71.066
+  ROCCH-EER: 13.659%
+  linkability: 0.621498
+  Population: 0.377 bit
+  Individual: 2.769 (C)
+ASV-vctk_test_enrolls-vctk_test_trials_f
+  EER: 4.99%
+  Cllr (min/act): 0.170/1.501
+  ROCCH-EER: 4.913%
+  linkability: 0.879313
+  Population: 0.593 bit
+  Individual: 3.649 (C)
+ASV-vctk_test_enrolls-vctk_test_trials_f_anon
+  EER: 34.67%
+  Cllr (min/act): 0.802/110.392
+  ROCCH-EER: 33.462%
+  linkability: 0.286011
+  Population: 0.137 bit
+  Individual: 2.156 (C)
+ASV-vctk_test_enrolls-vctk_test_trials_f_common
+  EER: 2.89%
+  Cllr (min/act): 0.092/0.858
+  ROCCH-EER: 2.760%
+  linkability: 0.924562
+  Population: 0.652 bit
+  Individual: 3.559 (C)
+ASV-vctk_test_enrolls-vctk_test_trials_f_common_anon
+  EER: 30.92%
+  Cllr (min/act): 0.746/110.114
+  ROCCH-EER: 29.967%
+  linkability: 0.327692
+  Population: 0.177 bit
+  Individual: 1.748 (B)
+ASV-vctk_test_enrolls-vctk_test_trials_m
+  EER: 2.067%
+  Cllr (min/act): 0.071/1.819
+  ROCCH-EER: 1.967%
+  linkability: 0.950626
+  Population: 0.667 bit
+  Individual: 3.916 (C)
+ASV-vctk_test_enrolls-vctk_test_trials_m_anon
+  EER: 24.68%
+  Cllr (min/act): 0.705/106.736
+  ROCCH-EER: 24.498%
+  linkability: 0.415800
+  Population: 0.204 bit
+  Individual: 1.994 (B)
+ASV-vctk_test_enrolls-vctk_test_trials_m_common
+  EER: 1.13%
+  Cllr (min/act): 0.035/1.029
+  ROCCH-EER: 0.923%
+  linkability: 0.972158
+  Population: 0.695 bit
+  Individual: 3.675 (C)
+ASV-vctk_test_enrolls-vctk_test_trials_m_common_anon
+  EER: 24.58%
+  Cllr (min/act): 0.730/97.902
+  ROCCH-EER: 24.081%
+  linkability: 0.411860
+  Population: 0.185 bit
+  Individual: 1.748 (B)
+ASV-vctk_test_enrolls_anon-vctk_test_trials_f_anon
+  EER: 18.42%
+  Cllr (min/act): 0.589/63.481
+  ROCCH-EER: 18.249%
+  linkability: 0.581076
+  Population: 0.286 bit
+  Individual: 3.119 (C)
+ASV-vctk_test_enrolls_anon-vctk_test_trials_f_common_anon
+  EER: 13.58%
+  Cllr (min/act): 0.438/70.067
+  ROCCH-EER: 13.329%
+  linkability: 0.651341
+  Population: 0.394 bit
+  Individual: 2.714 (C)
+ASV-vctk_test_enrolls_anon-vctk_test_trials_m_anon
+  EER: 13.89%
+  Cllr (min/act): 0.472/59.717
+  ROCCH-EER: 13.830%
+  linkability: 0.689788
+  Population: 0.369 bit
+  Individual: 3.342 (C)
+ASV-vctk_test_enrolls_anon-vctk_test_trials_m_common_anon
+  EER: 11.3%
+  Cllr (min/act): 0.373/66.538
+  ROCCH-EER: 10.880%
+  linkability: 0.705028
+  Population: 0.442 bit
+  Individual: 2.623 (C)
+ASR-libri_dev_asr
+  %WER 5.25 [ 2088 / 39783, 205 ins, 213 del, 1670 sub ] exp/models/asr_eval/decode_libri_dev_asr_tgsmall/wer_12_0.0
+  %WER 3.82 [ 1521 / 39783, 185 ins, 141 del, 1195 sub ] exp/models/asr_eval/decode_libri_dev_asr_tglarge/wer_13_0.0
+ASR-libri_dev_asr_anon
+  %WER 41.82 [ 16638 / 39783, 881 ins, 4180 del, 11577 sub ] exp/models/asr_eval/decode_libri_dev_asr_anon_tgsmall/wer_14_0.0
+  %WER 36.10 [ 14360 / 39783, 958 ins, 3252 del, 10150 sub ] exp/models/asr_eval/decode_libri_dev_asr_anon_tglarge/wer_15_0.0
+ASR-libri_test_asr
+  %WER 5.55 [ 1945 / 35042, 215 ins, 199 del, 1531 sub ] exp/models/asr_eval/decode_libri_test_asr_tgsmall/wer_13_0.0
+  %WER 4.15 [ 1455 / 35042, 175 ins, 159 del, 1121 sub ] exp/models/asr_eval/decode_libri_test_asr_tglarge/wer_12_1.0
+ASR-libri_test_asr_anon
+  %WER 42.71 [ 14968 / 35042, 705 ins, 4083 del, 10180 sub ] exp/models/asr_eval/decode_libri_test_asr_anon_tgsmall/wer_15_0.0
+  %WER 36.72 [ 12868 / 35042, 936 ins, 2811 del, 9121 sub ] exp/models/asr_eval/decode_libri_test_asr_anon_tglarge/wer_15_0.0
+ASR-vctk_dev_asr
+  %WER 14.04 [ 12166 / 86627, 1206 ins, 1749 del, 9211 sub ] exp/models/asr_eval/decode_vctk_dev_asr_tgsmall/wer_14_0.0
+  %WER 10.79 [ 9345 / 86627, 988 ins, 1362 del, 6995 sub ] exp/models/asr_eval/decode_vctk_dev_asr_tglarge/wer_14_0.5
+ASR-vctk_dev_asr_anon
+  %WER 59.23 [ 51313 / 86627, 2653 ins, 13140 del, 35520 sub ] exp/models/asr_eval/decode_vctk_dev_asr_anon_tgsmall/wer_15_0.0
+  %WER 55.54 [ 48116 / 86627, 3692 ins, 9757 del, 34667 sub ] exp/models/asr_eval/decode_vctk_dev_asr_anon_tglarge/wer_15_0.0
+ASR-vctk_test_asr
+  %WER 16.39 [ 14201 / 86642, 1326 ins, 2239 del, 10636 sub ] exp/models/asr_eval/decode_vctk_test_asr_tgsmall/wer_14_0.0
+  %WER 12.81 [ 11099 / 86642, 1258 ins, 1512 del, 8329 sub ] exp/models/asr_eval/decode_vctk_test_asr_tglarge/wer_15_0.0
+ASR-vctk_test_asr_anon
+  %WER 62.23 [ 53914 / 86642, 3077 ins, 12516 del, 38321 sub ] exp/models/asr_eval/decode_vctk_test_asr_anon_tgsmall/wer_14_0.0
+  %WER 58.34 [ 50551 / 86642, 3701 ins, 10323 del, 36527 sub ] exp/models/asr_eval/decode_vctk_test_asr_anon_tglarge/wer_15_0.0
+libri_dev_trials_f
+  De-Identification : 0.7636611908445836
+  Gain of voice distinctiveness : -1.8694050598595497
+libri_dev_trials_m
+  De-Identification : 0.6705779908684849
+  Gain of voice distinctiveness : -1.4956601260252311
+vctk_dev_trials_f
+  De-Identification : 0.8497345738855608
+  Gain of voice distinctiveness : -3.119645517789824
+vctk_dev_trials_m
+  De-Identification : 0.8894292603261
+  Gain of voice distinctiveness : -4.8053368194480095
+vctk_dev_trials_f_common
+  De-Identification : 0.7263232534922447
+  Gain of voice distinctiveness : -0.8813481546620026
+vctk_dev_trials_m_common
+  De-Identification : 0.716096775055646
+  Gain of voice distinctiveness : -1.692908538700539
+libri_test_trials_f
+  De-Identification : 0.5800308326707009
+  Gain of voice distinctiveness : -0.9361285276502819
+libri_test_trials_m
+  De-Identification : 0.5568218479281399
+  Gain of voice distinctiveness : -1.2405615721307144
+vctk_test_trials_f
+  De-Identification : 0.8480366661282246
+  Gain of voice distinctiveness : -4.229235681558392
+vctk_test_trials_m
+  De-Identification : 0.8142042899439735
+  Gain of voice distinctiveness : -3.2477647318294705
+vctk_test_trials_f_common
+  De-Identification : 0.6759041807597741
+  Gain of voice distinctiveness : -1.7091206658791405
+vctk_test_trials_m_common
+  De-Identification : 0.6143539807480596
+  Gain of voice distinctiveness : -1.1037475485197175
